@@ -10,5 +10,5 @@ The user will be able to view all the saved contact information as an organized 
 Users are able to adjust contact information by adding new and deleting exisitng contact information
 
 Main software components of our project
-Python OOP/SQL(to manage databases)
+Python OOP
 
