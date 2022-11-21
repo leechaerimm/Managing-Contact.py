@@ -1,0 +1,10 @@
+echo "# 326FinalProject" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/leechaerimm/326FinalProject.git
+git push -u origin main
+
+
+print("Hello World")
