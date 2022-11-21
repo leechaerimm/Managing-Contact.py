@@ -6,5 +6,16 @@ git branch -M main
 git remote add origin https://github.com/leechaerimm/326FinalProject.git
 git push -u origin main
 
+#INST326
+#Final project
+#Group members: Chaeirm Lee Ellen Seong Junyun Jeon
 
-print("Hello World")
+import sys
+
+#Pseudo code
+
+# contactlist function
+def contactlist ():
+ 
+  #-first functino to run after main function executes
+
