@@ -6,13 +6,7 @@ git branch -M main
 git remote add origin https://github.com/leechaerimm/326FinalProject.git
 git push -u origin main
 
-#INST326
-#Final project
-#Group members: Chaeirm Lee Ellen Seong Junyun Jeon
-
 import sys
-
-#Pseudo code
 
 # contactlist function
 def contactlist ():
@@ -20,4 +14,52 @@ def contactlist ():
 
   #-first functino to run after main function executes
 
-# HELLO CHAERIM!!!!
+"""
+Driver: Chaerim Lee, Ellen Seong, Jungyun Jeon
+Assignment: Final Project INST326
+Date: 11_29_22
+Challenges Encountered: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"""
+
+import sys
+# First function to run after main function executes.
+
+def contactlist ():
+    rows, cols = int(input("How many contacts do you want to add first? ")), 5
+# Collecting the initial number of contacts the user wants to have in contact list.
+# User may enter 0 if user doesn't wish to enter any.
+    contact_list = []
+    print(contact_list)
+    for i in range(rows):
+        print("\nEnter contact %d information in the following order:" % (i+1))
+        print("* field must be entered")
+        print("---------------------------------------------------------------------")
+        temp = []
+        for j in range(cols):
+            if j == 0:
+                temp.append(str(input("Enter the Name: ")))
+                # Check if the user has left the name empty becuase it is mendatory.
+
+                if temp[j] == '' or temp[j] == ' ':
+                    sys.exit(
+                        "Please fill out a mendatory field. System exiting due to an empty mendatory field!")
+                    # This will exit the process if a empty mendatory field is encountered.
+                     
+            if j == 1:
+                temp.append(int(input("Enter the Phone Number: ")))
+                # Int value cannot accept a blank as that counts as a string.
+                # Processing automatically exits without using the sys package.
+
+            if j == 2:
+                temp.append(
+                    str(input("Enter the Group(Family/Friends/Work): ")))
+                # Even if this field is left as blank, None will take the empty place.
+                if temp[j] == "" or temp[j] == ' ':
+                    temp[j] = None
+                     
+        contact_list.append(temp)
+        # By this step we are appending a list temp into a list contact_list
+        # That means contact_list is a 2-D array and temp is a 1-D array
+     
+    print(contact_list)
+    return contact_list
