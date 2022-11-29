@@ -16,7 +16,8 @@ import sys
 
 # contactlist function
 def contactlist ():
- 
+  rows, cols = int(input("Please enter "))
+
   #-first functino to run after main function executes
 
 # HELLO CHAERIM!!!!
