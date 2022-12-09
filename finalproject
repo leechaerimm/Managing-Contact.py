@@ -1,10 +1,3 @@
-echo "# 326FinalProject" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/leechaerimm/326FinalProject.git
-git push -u origin main
 
 import sys
 
@@ -63,3 +56,148 @@ def contactlist ():
      
     print(contact_list)
     return contact_list
+def menu():
+    # This is the menu function and will only execute when it is called.
+        print("--------------------------------------------------------------------")
+        print("\t\t\tCONTACT LIST DIRECTORY", flush=False)
+        print("--------------------------------------------------------------------")
+        print("\tPlease enter the number of operation \n")
+        print("1. Add a new contact")
+        print("2. Remove an existing contact")
+        print("3. Search for a contact")
+        print("4. Display all contacts")
+        print("5. Exit contact list")
+ 
+    # The user can pick 1 choice from 6 choices. It will return the entered choice.
+        choice = int(input("Please enter your choice: "))
+     
+        return choice
+ 
+def add_contact(cl):
+    # This is add_contact function where the user can add the contact information by name, phone number, and category.
+    add = []
+    for i in range(len(cl[0])):
+        if i == 0:
+            add.append(str(input("Enter the name: ")))
+        if i == 1:
+            add.append(int(input("Enter the phone number: ")))
+        if i == 4:
+            add.append(
+                str(input("Enter the category (Family/Friends/Work/Others): ")))
+    cl.append(add)
+    return cl 
+ 
+def remove_existing(cl):
+    # The remoce_existing function can remove a contact information from the contact list.
+    query = str(
+        input("Please enter the name of the contact you wish to remove: "))
+     
+    temp = 0
+    # temp is a checking a variable here. The assigned value is 0.
+     
+    for i in range(len(cl)):
+        if query == cl[i][0]:
+            temp += 1
+            # temp will be incremented and it won't be 0 anymore in this function's scope.
+             
+            print(cl.pop(i))
+            # The pop function removes entry at index i.
+             
+            print("This query has now been removed")
+            # This is printing a confirmation message after removal of contact information.
+            # After the removal, modified contact list will be shown.
+        
+            return cl
+    if temp == 0:
+        # Any case matches temp should've incremented but if otherwise, temp will remain 0 and that means the query does not exist in this contact list.
+        print("Sorry, you have entered an invalid query.\
+    Please recheck and try again later.")
+         
+        return cl
+ 
+def search_existing(cl):
+    # The search_existing function searches for an existing contact information and displays it.
+    choice = int(input("Enter the number of operation:\n 1. Name\n 2. Number\n 3. Category(Family/Friends/Work/Others)\n Please enter: "))
+     
+    temp = []
+    check = -1
+     
+    if choice == 1:
+    # This will execute for searches based on contact name.
+        query = str(
+            input("Please enter the name of the contact you wish to search: "))
+        for i in range(len(cl)):
+            if query == cl[i][0]:
+                check = i
+                temp.append(cl[i])
+                 
+    elif choice == 2:
+    # This will execute for searches based on contact number.
+        query = int(
+            input("Please enter the number of the contact you wish to search: "))
+        for i in range(len(cl)):
+            if query == cl[i][1]:
+                check = i
+                temp.append(cl[i])
+                 
+    elif choice == 3:
+    # This will execute for searches based on contact's category.
+        query = str(
+            input("Please enter the category of the contact you wish to search: "))
+        for i in range(len(cl)):
+            if query == cl[i][2]:
+                check = i
+                temp.append(cl[i])
+        # All contacts under query category will be shown using this feature.
+         
+    else:
+    # If the user enters any other choice then the search will be unsuccessful.
+        print("Invalid. Please enter again")
+        return -1
+    # returning -1 indicates that the search was unsuccessful.
+     
+    # all the searches are stored in temp and all the results will be displayed with the help of display function.
+    if check == -1:
+        return -1
+        # returning -1 indicates that the query is not vaild in the contact list
+    else:
+        display_all(temp)
+        return check
+        # It is returning a index value with not -1 to calling a function just to notify that the search was worked.
+ 
+# The disply_all function displays all the contact list.
+def display_all(cl):
+    if not cl:
+        # If there is no contact list to display, it will display the message below.
+        print("List is empty: []")
+    else:
+        for i in range(len(cl)):
+            print(cl[i])
+ 
+def message():
+# A message to the user.
+    print("--------------------------------------------------------------------")
+    print("Thank you for using our contact list system.")
+    sys.exit("Goodbye!")
+ 
+# Main function code to display welcome message.
+print("========================================================================")
+print("Welcome to contact list system!")
+print("========================================================================")
+
+ch = 1
+cl = contactlist()
+while ch in (1, 2, 3, 4, 5):
+    ch = menu()
+    if ch == 1:
+        cl = add_contact(cl)
+    elif ch == 2:
+        cl = remove_existing(cl)
+    elif ch == 3:
+        d = search_existing(cl)
+        if d == -1:
+            print("The contact does not exist. Please try again")
+    elif ch == 4:
+        display_all(cl)
+    else:
+        message()
