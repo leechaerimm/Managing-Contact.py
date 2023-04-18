@@ -1,4 +1,4 @@
-# 326 Final Project
+# Managing Contact Information
 Date: November 20, 2022
 
 Overview of the project
