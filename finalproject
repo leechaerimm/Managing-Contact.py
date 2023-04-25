@@ -5,12 +5,10 @@ import sys
 def contactlist ():
   rows, cols = int(input("Please enter "))
 
-  #-first functino to run after main function executes
+  #-first function to run after main function executes
 
 """
-Driver: Chaerim Lee, Ellen Seong, Jungyun Jeon
-Assignment: Final Project INST326
-Date: 11_29_22
+Driver: Chaerim Lee
 Challenges Encountered: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
